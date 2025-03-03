@@ -4,7 +4,7 @@ import { useGLTF } from '@react-three/drei';
 
 function RotatingModel() {
   // Load the GLTF model
-  const { scene } = useGLTF('/models/computer/scene.gltf');
+  const { scene } = useGLTF('/models/scene.gltf');
   // Create a ref to the scene for rotation
   const sceneRef = useRef(scene);
 

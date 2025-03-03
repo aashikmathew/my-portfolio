@@ -164,7 +164,7 @@ export default function Intro() {
             >
               <div className={styles.profilePhoto}>
                 <Image 
-                  src="/profile.jpg" 
+                  src="/models/profile.jpg" 
                   alt="Aashik Mathew Prosper" 
                   layout="fill"
                   objectFit="cover"
@@ -179,7 +179,8 @@ export default function Intro() {
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={jobIndex}
-                    initial={{ y: 20, opacity: 0 }}
+                    initial={{ y: 20, opacity: 0 }
+                  }
                     animate={{ y: 0, opacity: 1 }}
                     exit={{ y: -20, opacity: 0 }}
                     transition={{ duration: 0.5 }}

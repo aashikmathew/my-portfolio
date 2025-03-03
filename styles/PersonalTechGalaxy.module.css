@@ -8,6 +8,7 @@
   width: 100%;
   max-width: 100%; /* Changed from 1200px to full width */
   margin: 0 auto;
+  box-sizing: border-box;
 }
 
 /* Header Section */
@@ -29,6 +30,7 @@
   justify-content: center;
   gap: 1rem;
   margin-bottom: 1rem;
+  flex-wrap: wrap;
 }
 
 .timelineItem {
@@ -50,6 +52,7 @@
   justify-content: center;
   gap: 1rem;
   margin-bottom: 1rem;
+  flex-wrap: wrap;
 }
 
 .toggleButton {
@@ -62,6 +65,7 @@
   transition: all 0.3s ease;
   border: none;
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .toggleIcon {
@@ -117,7 +121,7 @@
 }
 
 .inactiveFilter:hover {
-  background: #c9bfa0;
+  background: #f5f1de;
 }
 
 /* Galaxy View */
@@ -268,6 +272,9 @@
   pointer-events: none;
   opacity: 1; /* Always visible */
   transform: translateY(0); /* No transform to hide it */
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* These classes are still useful for JavaScript transitions or hover effects */
@@ -293,6 +300,7 @@
   padding: 0.75rem;
   color: white;
   min-width: 200px;
+  max-width: 90vw;
   z-index: 20;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
   pointer-events: none;
@@ -675,8 +683,16 @@
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+  .personalTechGalaxy {
+    padding: 1rem;
+  }
+
+  .universeTitle {
+    font-size: 1.75rem;
+  }
+  
   .galaxyView {
-    height: 26rem;
+    height: 24rem;
   }
   
   .statsView {
@@ -684,16 +700,97 @@
   }
   
   .skillCircle {
-    width: 40px !important;
-    height: 40px !important;
+    width: 36px !important;
+    height: 36px !important;
   }
   
   .skillIcon {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
   }
   
   .centralContent {
     width: 50px;
     height: 50px;
+    font-size: 1rem;
   }
+
+  .toggleButton {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.75rem;
+  }
+
+  .toggleIcon {
+    font-size: 1rem;
+  }
+
+  .statsCard {
+    padding: 1rem;
+    min-height: 250px;
+  }
+
+  .topSkillIcon {
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.25rem;
+  }
+
+  .statsTitle {
+    font-size: 1.125rem;
+  }
+
+  .statsIcon {
+    font-size: 1.25rem;
+  }
+
+  .bottomInfo {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .universeTitle {
+    font-size: 1.5rem;
+  }
+
+  .galaxyView {
+    height: 20rem;
+  }
+
+  .skillCircle {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  .skillIcon {
+    font-size: 1rem;
+  }
+
+  .centralContent {
+    width: 40px;
+    height: 40px;
+    font-size: 0.875rem;
+  }
+
+  .skillNameOverlay {
+    font-size: 0.625rem;
+    padding: 0.125rem 0.375rem;
+  }
+
+  .masteryLabel {
+    width: 4.5rem;
+    font-size: 0.75rem;
+  }
+
+  .statsFooterItem {
+    min-width: calc(50% - 0.75rem);
+  }
+}
+
+.underline {
+  height: 3px;
+  width: 60px;
+  background-color: #5c4033;
+  margin: 0 auto 40px;
 }

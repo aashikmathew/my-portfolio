@@ -186,6 +186,7 @@ export default function Projects() {
       viewport={{ once: true }}
     >
       <h2>Projects</h2>
+      <div className={styles.underline}></div>
 
       <div className={styles.projectGrid}>
         {projects.map((project, i) => (

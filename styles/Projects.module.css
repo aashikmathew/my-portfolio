@@ -216,6 +216,13 @@
   animation: pulse 1.5s infinite;
 }
 
+.underline {
+  height: 3px;
+  width: 60px;
+  background-color: #5c4033;
+  margin: 0 auto 40px;
+}
+
 /* Fix for very small screens */
 @media (max-width: 360px) {
   .projectHeader, 

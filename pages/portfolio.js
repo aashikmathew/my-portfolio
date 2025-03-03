@@ -9,8 +9,8 @@ import Footer from '../components/Footer';
 import BackgroundModel from '../components/BackgroundModel';
 
 import styles from '../styles/Home.module.css';
-
 import PersonalTechGalaxy from '../components/PersonalTechGalaxy';
+import Publications from '../components/Publications';
 
 export default function Portfolio() {
   return (
@@ -42,6 +42,7 @@ export default function Portfolio() {
       <main className={styles.mainContent}>
         <About />
         <Projects />
+        <Publications />
         <PersonalTechGalaxy />
         <Contact />
       </main>

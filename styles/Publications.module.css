@@ -1,0 +1,225 @@
+.section {
+    padding: 4rem 0;
+    background-color: #f5f5dc; /* Light beige background to match your website */
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  .sectionTitle {
+    font-size: 2.25rem;
+    color: #5c4033; /* Dark brown text */
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  .underline {
+    height: 3px;
+    width: 60px;
+    background-color: #5c4033;
+    margin: 0 auto 1rem;
+  }
+  
+  .sectionSubtitle {
+    text-align: center;
+    color: #5c4033;
+    opacity: 0.8;
+    margin-bottom: 3rem;
+    font-size: 1rem;
+  }
+  
+  .publicationsList {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .publicationCard {
+    background-color: f5f5dc;
+    border-radius: 8px;
+    border: 1px solid rgba(92, 64, 51, 0.15);
+    border-left: 4px solid #5c4033;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+  }
+  
+  .publicationCard:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  }
+  
+  .cardContent {
+    padding: 1.5rem;
+  }
+  
+  .publicationTitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #4a3328; /* Slightly darker brown */
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+  }
+  
+  .publicationMeta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+    font-size: 0.875rem;
+  }
+  
+  .publisher {
+    font-weight: 600;
+  }
+  
+  .status {
+    background-color: #f5f5dc; /* Antique white */
+    color: #8b4513; /* Saddle brown */
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  
+  .date {
+    color: #5c4033;
+    opacity: 0.8;
+  }
+  
+  .actionsRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  
+  .toggleButton {
+    background-color: transparent;
+    border: none;
+    color: #5c4033;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 0.5rem 0;
+    font-size: 0.875rem;
+    transition: color 0.3s ease;
+  }
+  
+  .toggleButton:hover {
+    color: #4a3328;
+  }
+  
+  .arrow {
+    margin-left: 0.5rem;
+    transition: transform 0.3s ease;
+    display: inline-block;
+    font-size: 0.75rem;
+  }
+  
+  .arrow.up {
+    transform: rotate(180deg);
+  }
+  
+  .paperLink {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background-color: #5c4033;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+    text-align: center;
+  }
+  
+  .paperLink:hover {
+    background-color: #4a3328;
+  }
+  
+  .publicationDetails {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(92, 64, 51, 0.15);
+    animation: fadeIn 0.4s ease;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .detailsList {
+    padding-left: 0.5rem;
+    list-style: none;
+  }
+  
+  .detailItem {
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+    position: relative;
+    padding-left: 1.5rem;
+    font-size: 0.95rem;
+    color: #5c4033;
+  }
+  
+  .detailItem::before {
+    content: "•";
+    position: absolute;
+    left: 0.5rem;
+    color: #8b4513;
+  }
+
+  .publicationTitle, .publicationMeta, .publisher, .status, .date, .toggleButton, .paperLink, .detailItem {
+    text-align: left;
+  }
+  
+/* Responsive styles */
+@media (max-width: 768px) {
+    .section {
+      padding: 3rem 0;
+    }
+    
+    .container {
+      padding: 0 1.5rem;
+    }
+    
+    .sectionTitle {
+      font-size: 2rem;
+    }
+    
+    .publicationTitle {
+      font-size: 1.1rem;
+    }
+    
+    .actionsRow {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+      width: 100%;
+    }
+    
+    .paperLink {
+      width: 100%;
+      justify-content: center;
+      box-sizing: border-box;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .publicationMeta {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+  }

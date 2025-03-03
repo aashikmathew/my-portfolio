@@ -137,6 +137,8 @@ const PersonalTechGalaxy = () => {
     <div className={styles.personalTechGalaxy}>
       <div className={styles.headerSection}>
         <h2 className={styles.universeTitle}>My Tech Stack</h2>
+        <div className={styles.underline}></div>
+        
         <div className={styles.timelineContainer}>
           {educationTimeline.map((edu, index) => (
             <div key={index} className={styles.timelineItem}>
