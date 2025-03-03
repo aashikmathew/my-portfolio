@@ -4,7 +4,6 @@ import Header from '../components/Header';
 import About from '../components/About';
 import Projects from '../components/Projects';
 import Contact from '../components/Contact';
-import ThreeDTechStack from '../components/PersonalTechGalaxy';
 import Footer from '../components/Footer';
 import BackgroundModel from '../components/BackgroundModel';
 
@@ -16,7 +15,7 @@ export default function Portfolio() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Aashik's Portfolio</title>
+        <title>Aashik Mathew Prosper</title>
         <meta name="description" content="My Portfolio Page with About, Projects, Contact, and Tech Stack" />
       </Head>
 

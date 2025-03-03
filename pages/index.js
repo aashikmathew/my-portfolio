@@ -12,7 +12,7 @@ export default function Home() {
         <title>Aashik's Portfolio</title>
         <meta
           name="description"
-          content="Aashik's Portfolio: Projects, Experience & Skills"
+          content="Aashik Mathew Prosper"
         />
         {/* Favicon SVG */}
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
