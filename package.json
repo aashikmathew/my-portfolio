@@ -1,0 +1,27 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/lab": "^6.0.0-beta.29",
+    "@mui/material": "^6.4.6",
+    "@react-three/drei": "^9.122.0",
+    "@react-three/fiber": "^8.18.0",
+    "framer-motion": "^12.4.7",
+    "next": "^15.1.6",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-icons": "^4.12.0",
+    "react-tsparticles": "^2.12.0",
+    "tech-stack-icons": "^2.1.0",
+    "three": "^0.173.0",
+    "tsparticles": "^2.12.0",
+    "tsparticles-engine": "^2.12.0"
+  }
+}

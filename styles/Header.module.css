@@ -1,0 +1,33 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: transparent; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Make sure the text is also visible */
+.logo a {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #5c4033; /* White for better contrast */
+  text-decoration: none;
+}
+
+.nav a {
+  margin: 0 15px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: #5c4033; /* Slightly off-white for nav links */
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav a:hover {
+  color: #5c4033; 
+  transform: translateY(-3px);
+}

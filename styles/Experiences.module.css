@@ -1,0 +1,116 @@
+.experiences {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  color: #5c4033;
+  font-family: sans-serif;
+}
+
+.heading {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Card container for each experience */
+.experienceCard {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(92, 64, 51, 0.2);
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experienceCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Header row: role/employment on left, duration + arrow on right */
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(92, 64, 51, 0.3);
+}
+
+.leftHeader {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #5c4033;
+}
+
+.employment {
+  font-weight: normal;
+  margin-left: 0.3rem;
+}
+
+.rightHeader {
+  font-size: 1rem;
+  color: #5c4033;
+  display: flex;
+  align-items: center;
+}
+
+.arrow {
+  margin-left: 0.5rem;
+  font-size: 1.2rem;
+}
+
+/* Second row: company & location, left aligned */
+.companyLocation {
+  font-size: 1rem;
+  margin: 0.5rem 1rem;
+  color: #5c4033;
+}
+
+/* Expand/collapse section for bullet points */
+.expandedContent {
+  padding: 0 1rem 1rem 1.5rem;
+  overflow: hidden;
+}
+
+.bulletPoints {
+  list-style: disc;
+  margin: 0.5rem 0 0 0;
+  padding-left: 1rem;
+  text-align: left;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #5c4033;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .experiences {
+    padding: 1rem;
+    max-width: 100%;
+  }
+  .heading {
+    font-size: 2rem;
+  }
+  .headerRow {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.5rem;
+  }
+  .leftHeader, .rightHeader {
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+  }
+  .companyLocation {
+    font-size: 0.9rem;
+    margin: 0.25rem 1rem;
+  }
+  .expandedContent {
+    padding: 0 1rem 0.75rem 1rem;
+  }
+  .bulletPoints {
+    font-size: 0.9rem;
+    padding-left: 1rem;
+  }
+}

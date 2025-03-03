@@ -1,0 +1,103 @@
+/* styles/Home.module.css */
+.container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: none;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Instead of a dark gradient, we use a beige background */
+.gradientBackground {
+  position: fixed; /* Changed from absolute to fixed */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw; /* Use viewport width */
+  height: 100vh;
+  background: #f5f5dc;  /* Classic beige */
+  z-index: -1;
+  margin: 0;
+  padding: 0;
+}
+
+/* Hero section */
+.heroSection {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  touch-action: manipulation; /* Improve touch response */
+}
+
+.heroContent {
+  text-align: center;
+  color: #5c4033; /* Dark brown for contrast against beige */
+  margin-bottom: 2rem;
+  width: 100%;
+  padding: 0 20px; /* Add horizontal padding inside content instead */
+}
+
+.profilePic {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 3px solid #5c4033; /* Use dark brown as well */
+}
+
+.name {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #5c4033; /* Dark text */
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #5c4033;
+}
+
+/* Bottom-center arrow */
+.arrowContainer {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  cursor: pointer;
+  touch-action: manipulation; /* Improve touch response */
+}
+
+.arrowContainer:hover {
+  transform: translateX(-50%) translateY(-5px);
+}
+
+.arrowContainer:active {
+  transform: translateX(-50%) translateY(-5px);
+}
+
+/* Main content */
+.mainContent {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  margin: 0;
+  padding: 2rem;
+  color: #5c4033;
+  text-align: center;
+  box-sizing: border-box;
+  touch-action: manipulation; /* Improve touch response */
+}

@@ -1,0 +1,239 @@
+.projects {
+  padding: 60px 10px; /* Reduced side padding for mobile */
+  background: transparent;
+  text-align: center;
+  margin-top: 60px; /* Reduced margin for mobile */
+  margin-bottom: 60px;
+  color: #5c4033;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.projects h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #5c4033;
+  word-wrap: break-word; /* Allow wrapping of long titles */
+}
+
+/* Grid for projects: 4 in a row on large screens */
+.projectGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  width: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .projectGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .projectGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .projects h2 {
+    font-size: 2rem; /* Smaller heading on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .projectGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .projects {
+    padding: 40px 8px; /* Even less padding on smallest screens */
+  }
+  
+  .projectCard h3 {
+    font-size: 1.3rem; /* Smaller headings on mobile */
+    word-wrap: break-word;
+    hyphens: auto;
+  }
+  
+  .projectCard {
+    padding: 15px; /* Less padding in cards on mobile */
+  }
+  
+  .githubLink {
+    width: 100%; /* Full width button on mobile */
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  .projectFooter {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .projectMeta {
+    margin-bottom: 10px;
+  }
+}
+
+.projectCard {
+  padding: 25px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left;
+  overflow: hidden; /* Prevent content overflow */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.projectCard:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.projectCard h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #5c4033;
+  word-wrap: break-word; /* Allow long titles to wrap */
+  hyphens: auto;
+}
+
+.projectCard p {
+  font-size: 1rem;
+  color: #5c4033;
+  margin-bottom: 20px;
+  word-wrap: break-word; /* Allow text to wrap */
+}
+
+/* Project Header */
+.projectHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+  flex-wrap: wrap; /* Allow wrapping on small screens */
+  gap: 8px; /* Gap between wrapped items */
+}
+
+.projectTitleContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap; /* Allow wrapping */
+}
+
+.privacyIcon {
+  font-size: 0.9rem;
+  color: #5c4033;
+  opacity: 0.7;
+}
+
+/* Language Badge */
+.langBadge {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  background-color: rgba(92, 64, 51, 0.1);
+  color: #5c4033;
+  white-space: nowrap; /* Keep the badge on one line */
+}
+
+.langIcon {
+  font-size: 1rem;
+}
+
+/* Footer */
+.projectFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  flex-wrap: wrap; /* Allow wrapping */
+  gap: 10px; /* Gap between wrapped items */
+}
+
+.projectMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.licenseBadge,
+.forkBadge {
+  font-size: 0.75rem;
+  padding: 0.1rem 0.5rem;
+  border-radius: 10px;
+  background-color: rgba(92, 64, 51, 0.1);
+  color: #5c4033;
+}
+
+.updatedInfo {
+  font-size: 0.75rem;
+  color: #5c4033;
+  opacity: 0.8;
+  white-space: nowrap; /* Keep date on one line */
+}
+
+.githubLink {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background-color: #5c4033;
+  color: white;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  white-space: nowrap; /* Keep button text on one line */
+}
+
+.githubLink:hover {
+  background-color: #4a3328;
+}
+
+/* Hover animation for the language badge */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.projectCard:hover .langBadge {
+  animation: pulse 1.5s infinite;
+}
+
+/* Fix for very small screens */
+@media (max-width: 360px) {
+  .projectHeader, 
+  .projectFooter {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .projectTitleContainer {
+    margin-bottom: 8px;
+  }
+  
+  .langBadge {
+    align-self: flex-start;
+  }
+  
+  .githubLink {
+    align-self: stretch;
+    justify-content: center;
+  }
+}

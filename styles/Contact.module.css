@@ -1,0 +1,40 @@
+.contact {
+  padding: 60px 20px;
+  background: transparent; 
+  text-align: center;
+  color: #5c4033; /* Overall text color */
+}
+
+.contact h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #5c4033; 
+}
+
+.contact p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #5c4033; 
+}
+
+.contactLinks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px; /* Controls spacing between links */
+}
+
+.contactLinks a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #5c4033;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  font-weight: 600;
+}
+.contactLinks a:hover {
+  background-color: #5c4033;
+  transform: translateY(-2px);
+}
