@@ -1,11 +1,11 @@
-name: Deploy to GitHub Pages
+name: Deploy Next.js to GitHub Pages
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]  # or your default branch
 
 permissions:
-  contents: write  # This gives the workflow permission to write to the repository
+  contents: write
 
 jobs:
   build-and-deploy:
@@ -13,10 +13,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          persist-credentials: true  # Ensure credentials are persisted
 
-      - name: Setup Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18'
@@ -24,11 +22,15 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build
-        run: npm run build
+      - name: Create .nojekyll file
+        run: touch out/.nojekyll
 
-      - name: Deploy
+      - name: Build Next.js
+        run: npm run build
+        
+      - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4.4.3
         with:
           folder: out
           branch: gh-pages
+          clean: true
