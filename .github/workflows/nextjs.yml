@@ -1,36 +1,74 @@
+# This workflow will build and deploy a Next.js app to GitHub Pages
 name: Deploy Next.js to GitHub Pages
 
 on:
   push:
-    branches: [main]  # or your default branch
+    branches: [ "main" ]  # Set this to your default branch
+  workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      - name: Setup Node
+        uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: '18'  # Using a stable Node.js version
+          cache: 'npm'
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Create .nojekyll file
-        run: touch out/.nojekyll
+      - name: Configure Next.js for static export
+        run: |
+          if [ ! -f next.config.js ] || ! grep -q "output:" next.config.js; then
+            echo "Configuring Next.js for static export"
+            if [ -f next.config.js ]; then
+              # Append to existing config
+              sed -i "s/module.exports = {/module.exports = {\n  output: 'export',/g" next.config.js
+            else
+              # Create new config
+              echo "/** @type {import('next').NextConfig} */
+              const nextConfig = {
+                output: 'export',
+                images: {
+                  unoptimized: true
+                }
+              };
+              
+              module.exports = nextConfig;" > next.config.js
+            fi
+          fi
 
-      - name: Build Next.js
+      - name: Build Next.js app
         run: npm run build
-        
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4.4.3
+
+      - name: Create .nojekyll file
+        run: |
+          mkdir -p out
+          touch out/.nojekyll
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
         with:
-          folder: out
-          branch: gh-pages
-          clean: true
+          path: './out'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
