@@ -32,7 +32,7 @@ export default function Publications() {
       title: 'Precision Farming Using Machine Learning and Data Analytics',
       publisher: 'IEEE',
       date: 'Mar 19, 2024',
-      paperLink: 'https://ieeexplore.ieee.org/document/10465318', // Replace with actual IEEE link
+      paperLink: 'https://ieeexplore.ieee.org/document/10465318', 
       details: [
         'Collaborated with a peer to collect and analyze extensive datasets of over 5,000+ samples, and trained a machine learning model to predict crops using advanced algorithms and developed a flask web application.',
         'Achieved an outstanding 99.31% accuracy rate by rigorously testing and comparing six different supervised learning algorithms, utilizing XGBoost algorithm for optimal results, and improved efficiency.',
@@ -44,7 +44,7 @@ export default function Publications() {
       title: 'Realtime License Plate Detection Using YOLO V5 and ResNet50 CNN',
       publisher: 'IEEE',
       date: 'Mar 23, 2023',
-      paperLink: 'https://ieeexplore.ieee.org/document/10105076', // Replace with actual IEEE link
+      paperLink: 'https://ieeexplore.ieee.org/document/10105076', 
       details: [
         'Developed an advanced CCTV-based system for automatically detecting motorcyclists without helmets and identifying their license plates.',
         'Utilized cutting-edge techniques like Cascade R-CNN and Mask R-CNN, alongside a novel approach that employs Resnet50 for enhanced accuracy and speed.',

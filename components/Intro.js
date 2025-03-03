@@ -166,7 +166,7 @@ export default function Intro() {
                 <Image 
                   src="/models/profile.jpg" 
                   alt="Aashik Mathew Prosper" 
-                  layout="fill"
+                  fill={true}
                   objectFit="cover"
                   priority
                 />

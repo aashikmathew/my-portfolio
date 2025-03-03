@@ -38,3 +38,13 @@
   background-color: #5c4033;
   transform: translateY(-2px);
 }
+
+
+
+
+.resumeButtonContainer {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+

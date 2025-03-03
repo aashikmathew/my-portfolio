@@ -15,6 +15,7 @@ export default function Contact() {
       viewport={{ once: true }}
     >
       <h2>Contact Me</h2>
+      <div className={styles.underline}></div>
       <p>If you'd like to connect, feel free to reach out via Email / LinkedIn / GitHub.</p>
       <div className={styles.contactLinks}>
         <a href="mailto:aashikmathewss@gmail.com">Email</a>
