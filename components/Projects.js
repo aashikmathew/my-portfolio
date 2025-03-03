@@ -126,9 +126,9 @@ export default function Projects() {
       link: 'https://github.com/aashikmathewcodes/Tweet-Sentiment-Analysis-using-Bertweet',
     },
     {
-      name: 'CS522_Project',
+      name: 'Web Tools for High-Resolution Ensemble Models of 3D Single-Cell Chromatin Conformations',
       description:
-        'Web Tools for High-Resolution Ensemble Models of 3D Single-Cell Chromatin Conformations.',
+      'A web-based tool for visualizing and analyzing high-resolution ensemble models of 3D single-cell chromatin conformations to aid genomic research.',
       language: 'Jupyter Notebook',
       isPrivate: false,
       lastUpdated: 'Dec 6, 2024',
