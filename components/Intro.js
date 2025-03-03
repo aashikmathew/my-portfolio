@@ -33,7 +33,7 @@ export default function Intro() {
   ];
 
   // Utility to randomize positions
-  const getRandomPosition = () => ({
+  const getRandomPosition = () => ({ 
     x: Math.random() * 150 - 25, // in vw
     y: Math.random() * 150 - 25, // in vh
     scale: Math.random() * 0.5 + 0.5
@@ -43,7 +43,7 @@ export default function Intro() {
   const fullName = "Aashik Mathew Prosper";
   const jobTitles = [
     "Software Engineer@LTIMindtree", 
-    "Founding Machine Learning Intern@Confetti", 
+    "Machine Learning Intern@Confetti", 
     "Full-Stack Dev@UIC", 
     "Graduate Research Assistant@UI Health"
   ];
@@ -164,7 +164,7 @@ export default function Intro() {
             >
               <div className={styles.profilePhoto}>
                 <Image 
-                  src="/models/profile.jpg" 
+                  src="./models/profile.jpg" 
                   alt="Aashik Mathew Prosper" 
                   fill={true}
                   objectFit="cover"

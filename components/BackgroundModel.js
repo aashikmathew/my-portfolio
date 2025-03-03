@@ -1,14 +1,10 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useGLTF } from '@react-three/drei';
-import * as THREE from 'three';
-
-// Preload the model with the correct path
-const basePath = process.env.NODE_ENV === 'production' ? '/my-portfolio' : '';
-const modelPath = `${basePath}/models/scene.gltf`;
 
 function RotatingModel() {
-  const [modelError, setModelError] = useState(null);
+  // Load the GLTF model with relative path
+  const { scene } = useGLTF('./models/scene.gltf');
   
   // Define the angle range in radians
   const minAngle = -Math.PI / 6; // -30 degrees
@@ -16,15 +12,6 @@ function RotatingModel() {
   
   // Use state to track rotation direction
   const [rotateRight, setRotateRight] = useState(true);
-  
-  // Use the full path with error handling
-  const { scene } = useGLTF(modelPath, 
-    undefined, 
-    (error) => {
-      console.error('Error loading model:', error);
-      setModelError(error);
-    }
-  );
   
   // Create a ref to the scene for rotation
   const sceneRef = useRef(scene);
@@ -35,17 +22,6 @@ function RotatingModel() {
       sceneRef.current.rotation.y = minAngle;
     }
   }, []);
-
-  // Fallback if model fails to load
-  if (modelError) {
-    console.log('Using fallback model due to error:', modelError);
-    return (
-      <mesh position={[0, 0, 0]}>
-        <boxGeometry args={[2, 2, 2]} />
-        <meshStandardMaterial color="gray" />
-      </mesh>
-    );
-  }
 
   // Animate on every frame with controlled rotation
   useFrame((state, delta) => {
@@ -75,9 +51,6 @@ function RotatingModel() {
 
   return <primitive ref={sceneRef} object={scene} position={[0, -1, 0]} scale={[0.8, 0.8, 0.8]} />;
 }
-
-// Preload the model
-useGLTF.preload(modelPath);
 
 export default function BackgroundModel() {
   const [isClient, setIsClient] = useState(false);
