@@ -1,20 +1,11 @@
-# This workflow will build and deploy a Next.js app to GitHub Pages
 name: Deploy Next.js to GitHub Pages
 
 on:
   push:
-    branches: [ "main" ]  # Set this to your default branch
-  workflow_dispatch:
+    branches: [main]  # or your default branch
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-# Allow one concurrent deployment
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
+  contents: write
 
 jobs:
   build-and-deploy:
@@ -23,15 +14,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'  # Using a stable Node.js version
-          cache: 'npm'
+          node-version: '18'
 
       - name: Install dependencies
         run: npm ci
-
+        
       - name: Configure Next.js for static export
         run: |
           if [ ! -f next.config.js ] || ! grep -q "output:" next.config.js; then
@@ -53,22 +43,17 @@ jobs:
             fi
           fi
 
-      - name: Build Next.js app
+      - name: Build Next.js
         run: npm run build
 
       - name: Create .nojekyll file
         run: |
           mkdir -p out
           touch out/.nojekyll
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
-        with:
-          path: './out'
-
+        
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+        uses: JamesIves/github-pages-deploy-action@v4.4.3
+        with:
+          folder: out
+          branch: gh-pages
+          clean: true
