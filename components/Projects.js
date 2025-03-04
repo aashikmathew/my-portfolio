@@ -103,7 +103,7 @@ export default function Projects() {
       language: 'Python',
       isPrivate: true,
       lastUpdated: 'Dec 18, 2024',
-      link: 'https://github.com/aashikmathewcodes/SpineFractureDetection',
+      link: 'https://github.com/aashikmathew/SpineFractureDetection',
     },
     {
       name: 'Improved-iYOLO-v8-Fracture-detection',
@@ -113,7 +113,7 @@ export default function Projects() {
       isPrivate: false,
       lastUpdated: 'Oct 15, 2024',
       license: 'MIT License',
-      link: 'https://github.com/aashikmathewcodes/Improved-iYOLO-v8-Fracture-detection-for-pediatric-wrist',
+      link: 'https://github.com/aashikmathew/Improved-iYOLO-v8-Fracture-detection-for-pediatric-wrist',
     },
     {
       name: 'Tweet-Sentiment-Analysis-using-Bertweet',
@@ -123,7 +123,7 @@ export default function Projects() {
       isPrivate: false,
       lastUpdated: 'Dec 9, 2024',
       license: 'MIT License',
-      link: 'https://github.com/aashikmathewcodes/Tweet-Sentiment-Analysis-using-Bertweet',
+      link: 'https://github.com/aashikmathew/Tweet-Sentiment-Analysis-using-Bertweet',
     },
     {
       name: 'Web Tools for High-Resolution Ensemble Models of 3D Single-Cell Chromatin Conformations',
@@ -142,7 +142,7 @@ export default function Projects() {
       language: 'C++', 
       isPrivate: true,
       lastUpdated: 'Dec 10, 2024',
-      link: 'https://github.com/aashikmathewcodes/RubyPlayground',
+      link: 'https://github.com/aashikmathew/RubyPlayground',
     },
     {
       name: 'Distributed-Algorithms',
@@ -153,7 +153,7 @@ export default function Projects() {
       lastUpdated: 'Apr 30, 2024',
       license: 'Apache License 2.0',
       fork: true,
-      link: 'https://github.com/aashikmathewcodes/Distributed-Algorithms',
+      link: 'https://github.com/aashikmathew/Distributed-Algorithms',
     },
     {
       name: 'Exploratory-Analysis-of-Rainfall-Data',
@@ -163,7 +163,7 @@ export default function Projects() {
       isPrivate: true,
       lastUpdated: 'Apr 16, 2024',
       license: 'MIT License',
-      link: 'https://github.com/aashikmathewcodes/Exploratory-Analysis-of-Rainfall-Data-in-India-for-Agriculture',
+      link: 'https://github.com/aashikmathew/Exploratory-Analysis-of-Rainfall-Data-in-India-for-Agriculture',
     },
     {
       name: 'Precision-farming-using-Data-Analytics',
@@ -172,7 +172,7 @@ export default function Projects() {
       language: 'Jupyter Notebook',
       isPrivate: false,
       lastUpdated: 'Mar 20, 2024',
-      link: 'https://github.com/aashikmathewcodes/Precision-farming-using-Data-Analytics-and-Machine-learning',
+      link: 'https://github.com/aashikmathew/Precision-farming-using-Data-Analytics-and-Machine-learning',
     },
   ];
 
