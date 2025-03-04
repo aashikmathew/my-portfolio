@@ -32,12 +32,38 @@ export default function Intro() {
     <SiPostgresql key="postgres" />,
   ];
 
-  // Utility to randomize positions
-  const getRandomPosition = () => ({ 
-    x: Math.random() * 150 - 25, // in vw
-    y: Math.random() * 150 - 25, // in vh
-    scale: Math.random() * 0.5 + 0.5
+  // Use window dimensions for responsive positioning
+  const [windowSize, setWindowSize] = useState({
+    width: typeof window !== 'undefined' ? window.innerWidth : 0,
+    height: typeof window !== 'undefined' ? window.innerHeight : 0,
   });
+
+  // Utility to randomize positions with responsiveness in mind
+  const getRandomPosition = () => {
+    const scale = windowSize.width < 768 ? 0.3 + Math.random() * 0.3 : 0.5 + Math.random() * 0.5;
+    return { 
+      x: Math.random() * 150 - 25, // in vw
+      y: Math.random() * 150 - 25, // in vh
+      scale: scale
+    };
+  };
+
+  // Update window dimensions on resize
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    
+    function handleResize() {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    }
+    
+    window.addEventListener('resize', handleResize);
+    handleResize(); // Set initial size
+    
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   // Typewriter effect variables
   const fullName = "Aashik Mathew Prosper";
@@ -100,6 +126,35 @@ export default function Intro() {
     return () => container && container.removeEventListener('wheel', handleWheel);
   }, []);
 
+  // Add touch events for mobile swipe navigation
+  useEffect(() => {
+    let touchStartY = 0;
+    
+    const handleTouchStart = (e) => {
+      touchStartY = e.touches[0].clientY;
+    };
+    
+    const handleTouchEnd = (e) => {
+      const touchEndY = e.changedTouches[0].clientY;
+      if (touchStartY - touchEndY > 50) { // Swipe up
+        navigateToPortfolio();
+      }
+    };
+    
+    const container = containerRef.current;
+    if (container) {
+      container.addEventListener('touchstart', handleTouchStart);
+      container.addEventListener('touchend', handleTouchEnd);
+    }
+    
+    return () => {
+      if (container) {
+        container.removeEventListener('touchstart', handleTouchStart);
+        container.removeEventListener('touchend', handleTouchEnd);
+      }
+    };
+  }, []);
+
   const handleArrowClick = () => {
     navigateToPortfolio();
   };
@@ -137,7 +192,7 @@ export default function Intro() {
                   opacity: [0, 0.8, 0],
                   x: [`${start.x}vw`, `${mid.x}vw`, `${end.x}vw`],
                   y: [`${start.y}vh`, `${mid.y}vh`, `${end.y}vh`],
-                  scale: [start.scale, 1.5, start.scale],
+                  scale: [start.scale, start.scale * 1.2, start.scale],
                   rotate: [0, 180, 360],
                 }}
                 transition={{
@@ -167,7 +222,8 @@ export default function Intro() {
                   src="./models/profile.jpg" 
                   alt="Aashik Mathew Prosper" 
                   fill={true}
-                  objectFit="cover"
+                  sizes="(max-width: 480px) 120px, (max-width: 768px) 150px, 200px"
+                  style={{ objectFit: "cover" }}
                   priority
                 />
               </div>
@@ -179,8 +235,7 @@ export default function Intro() {
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={jobIndex}
-                    initial={{ y: 20, opacity: 0 }
-                  }
+                    initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     exit={{ y: -20, opacity: 0 }}
                     transition={{ duration: 0.5 }}
@@ -210,7 +265,7 @@ export default function Intro() {
               }}
               onClick={handleArrowClick}
             >
-              <FaChevronDown size={30} color="#5c4033" />
+              <FaChevronDown size={windowSize.width < 480 ? 20 : 30} color="#5c4033" />
               <div className={styles.scrollText}>Scroll Down</div>
             </motion.div>
           )}

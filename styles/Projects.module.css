@@ -244,3 +244,13 @@
     justify-content: center;
   }
 }
+
+.projectsHeading {
+  text-align: center; /* Center the text */
+  width: 100%; /* Take full width */
+  clear: both;
+  position: relative;
+  z-index: 2; /* Positive z-index keeps it above other elements */
+  padding-top: 2rem;
+  margin-top: 4rem; /* Add more space between model and heading */
+}

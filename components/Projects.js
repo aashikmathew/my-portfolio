@@ -185,7 +185,7 @@ export default function Projects() {
       transition={{ duration: 0.7 }}
       viewport={{ once: true }}
     >
-      <h2>Projects</h2>
+      <h2 className={styles.projectsHeading}>Projects</h2>
       <div className={styles.underline}></div>
 
       <div className={styles.projectGrid}>

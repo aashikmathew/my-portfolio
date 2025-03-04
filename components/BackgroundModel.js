@@ -54,6 +54,25 @@ function RotatingModel() {
 
 export default function BackgroundModel() {
   const [isClient, setIsClient] = useState(false);
+  const [windowSize, setWindowSize] = useState({
+    width: typeof window !== 'undefined' ? window.innerWidth : 0,
+    height: typeof window !== 'undefined' ? window.innerHeight : 0,
+  });
+
+  // Handle window resize
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    if (typeof window !== 'undefined') {
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+    }
+  }, []);
 
   // Only render the Canvas on the client side
   useEffect(() => {
@@ -64,17 +83,22 @@ export default function BackgroundModel() {
     return null; // Return nothing during server-side rendering
   }
 
+  // Position and size adjustments based on screen size
+  const isMobile = windowSize.width <= 768;
+  const modelStyle = {
+    position: 'absolute',
+    top: isMobile ? '50%' : '0%',
+    right: isMobile ? '50%' : '0px',
+    transform: isMobile ? 'translate(50%, 0)' : 'none',
+    width: isMobile ? '100%' : '50%',
+    height: isMobile ? '400px' : '800px',
+    pointerEvents: 'none',
+    zIndex: 1,
+  };
+
   return (
     <Canvas
-      style={{
-        position: 'absolute',
-        top: '0%',
-        right: '0px',
-        width: '1000px',
-        height: '800px',
-        pointerEvents: 'none',
-        zIndex: 1,
-      }}
+      style={modelStyle}
       camera={{ position: [0, 0, 0], fov: 60 }}
     >
       <ambientLight intensity={0.7} />
