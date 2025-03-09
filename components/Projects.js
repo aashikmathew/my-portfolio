@@ -97,6 +97,15 @@ const UpdateIcon = () => (
 export default function Projects() {
   const projects = [
     {
+      name: 'NLP_Synergy',
+      description:
+        'NLP_Synergy is an end-to-end natural language processing project designed to perform key NLP tasks, including part-of-speech tagging (POS), named entity recognition (NER), and text classification. This project utilizes various NLP techniques such as Hidden Markov Models, the Stanford NER Tagger, TF-IDF, and Word2Vec embeddings, integrating syntactic parsing and statistical machine learning models.',
+      language: 'Python',
+      isPrivate: false,
+      lastUpdated: 'March 5, 2025',
+      link: 'https://github.com/aashikmathew/NLP_Synergy',
+    },
+    {
       name: 'SpineFractureDetection',
       description:
         'AI-powered tool designed to detect and analyze spine fractures using advanced image processing techniques.',
