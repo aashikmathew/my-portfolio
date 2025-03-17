@@ -97,6 +97,15 @@ const UpdateIcon = () => (
 export default function Projects() {
   const projects = [
     {
+      name: 'AI-Powered-Safety-Standards-Analyzer',
+      description:
+        'The AI-Powered Safety Standards Analyzer is a tool designed to help standards organizations, manufacturers, and safety professionals identify gaps in existing safety standards, particularly for emerging technologies. Using OpenAIs API, this application analyzes safety standards documents and compares them against research papers and incident reports to identify potential areas where standards need to be updated or expanded.',
+      language: 'Python',
+      isPrivate: false,
+      lastUpdated: 'March 16, 2025',
+      link: 'https://github.com/aashikmathew/AI-Powered-Safety-Standards-Analyzer',
+    },
+    {
       name: 'NLP_Synergy',
       description:
         'NLP_Synergy is an end-to-end natural language processing project designed to perform key NLP tasks, including part-of-speech tagging (POS), named entity recognition (NER), and text classification. This project utilizes various NLP techniques such as Hidden Markov Models, the Stanford NER Tagger, TF-IDF, and Word2Vec embeddings, integrating syntactic parsing and statistical machine learning models.',
@@ -110,7 +119,7 @@ export default function Projects() {
       description:
         'AI-powered tool designed to detect and analyze spine fractures using advanced image processing techniques.',
       language: 'Python',
-      isPrivate: true,
+      isPrivate: false,
       lastUpdated: 'Dec 18, 2024',
       link: 'https://github.com/aashikmathew/SpineFractureDetection',
     },
@@ -149,7 +158,7 @@ export default function Projects() {
       description:
         'Repository serving as a hub for personal Ruby experiments and projects.',
       language: 'C++', 
-      isPrivate: true,
+      isPrivate: false,
       lastUpdated: 'Dec 10, 2024',
       link: 'https://github.com/aashikmathew/RubyPlayground',
     },
@@ -169,7 +178,7 @@ export default function Projects() {
       description:
         'Data analysis of rainfall patterns in India focused on agricultural applications.',
       language: 'Jupyter Notebook',
-      isPrivate: true,
+      isPrivate: false,
       lastUpdated: 'Apr 16, 2024',
       license: 'MIT License',
       link: 'https://github.com/aashikmathew/Exploratory-Analysis-of-Rainfall-Data-in-India-for-Agriculture',
