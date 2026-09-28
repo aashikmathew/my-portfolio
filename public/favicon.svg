@@ -1,8 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <!-- Beige circular background with brown border -->
-  <circle cx="50" cy="50" r="48" fill="#F5F5DC" stroke="#8B4513" stroke-width="4"/>
-  <!-- Centered letter "A" -->
-  <text x="50" y="65" text-anchor="middle" font-family="Georgia, serif" font-size="50" fill="#8B4513" font-weight="bold">
-    A
-  </text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
+  <rect width="40" height="40" rx="11" fill="#2b1d14"/>
+  <path d="M10.5 30 L20 9.5 L29.5 30" stroke="#f6f1e7" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M12 24.5 L16 21 L19.5 23.5 L27.5 16" stroke="#e8905e" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="30" cy="13.8" r="2.4" fill="#e8905e"/>
 </svg>
