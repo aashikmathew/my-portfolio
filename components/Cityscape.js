@@ -34,7 +34,7 @@ function windowGrid(x0, x1, y0, y1, colStep, rowStep, seedOffset, litRatio) {
   return cells;
 }
 
-/* ---------- Chicago Board of Trade, 141 W Jackson Blvd (viewBox 600 × 860) ---------- */
+/* ---------- Chicago Board of Trade tower (viewBox 600 × 860) ---------- */
 
 const CBOT_OUTLINE =
   'M40 860V600H90V540H150V380H185V190H215V160L300 70L385 160V190H415V380H450V540H510V600H560V860';

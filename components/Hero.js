@@ -110,19 +110,6 @@ function Portrait() {
     <div className={styles.scene}>
       <BoardOfTrade className={styles.cbot} />
 
-      <motion.p
-        className={styles.callout}
-        initial={{ opacity: 0, x: -12 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 2.4, duration: 0.7, ease }}
-      >
-        <FiMapPin aria-hidden className={styles.calloutIcon} />
-        <span>
-          <strong>141 W Jackson Blvd</strong>
-          <span className={styles.calloutSub}>Chicago Board of Trade</span>
-        </span>
-      </motion.p>
-
       <motion.figure
         className={styles.portrait}
         onPointerMove={onPointerMove}

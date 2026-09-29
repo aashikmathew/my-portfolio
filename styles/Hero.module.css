@@ -264,66 +264,6 @@
   -webkit-mask-image: linear-gradient(to top, transparent 0%, #000 22%);
 }
 
-.callout {
-  position: absolute;
-  top: 15%;
-  left: 0;
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 0.55rem 0.85rem 0.55rem 0.7rem;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  background: color-mix(in srgb, var(--surface) 85%, transparent);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: var(--shadow-md);
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  line-height: 1.35;
-}
-
-.callout strong {
-  display: block;
-  color: var(--text);
-  font-weight: 700;
-  letter-spacing: 0.02em;
-}
-
-.calloutSub {
-  display: block;
-  color: var(--text-muted);
-}
-
-.calloutIcon {
-  flex-shrink: 0;
-  color: var(--accent);
-  font-size: 1rem;
-}
-
-/* Dashed leader line pointing at the tower. */
-.callout::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 100%;
-  width: 64px;
-  height: 1px;
-  background: repeating-linear-gradient(90deg, var(--accent) 0 4px, transparent 4px 8px);
-}
-
-.callout::before {
-  content: '';
-  position: absolute;
-  top: calc(50% - 3px);
-  left: calc(100% + 62px);
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 0 4px var(--accent-soft);
-}
-
 .portrait {
   position: absolute;
   left: 0;
@@ -531,18 +471,6 @@
     display: none;
   }
 
-  .callout {
-    top: 6%;
-    font-size: 0.66rem;
-  }
-
-  .callout::after {
-    width: 34px;
-  }
-
-  .callout::before {
-    left: calc(100% + 32px);
-  }
 
   .stat {
     padding-right: 0.75rem;
