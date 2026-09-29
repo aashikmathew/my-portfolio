@@ -1,27 +1,24 @@
-// pages/_app.js
+import { Fraunces, Inter, JetBrains_Mono } from 'next/font/google';
+import { MotionConfig } from 'framer-motion';
 import '../styles/globals.css';
-import Script from 'next/script';
-import Head from 'next/head';
 
-function MyApp({ Component, pageProps }) {
+const inter = Inter({ subsets: ['latin'], display: 'swap' });
+const fraunces = Fraunces({ subsets: ['latin'], display: 'swap', axes: ['opsz'] });
+const mono = JetBrains_Mono({ subsets: ['latin'], display: 'swap', weight: ['500', '700'] });
+
+export default function App({ Component, pageProps }) {
   return (
     <>
-      <Head>
-        <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
-      </Head>
-      
-      <Script
-        src="https://www.goat1000.com/tagcanvas.min.js"
-        strategy="afterInteractive"
-        onLoad={() => {
-          console.log("TagCanvas loaded successfully");
-          // Check if window.TagCanvas exists
-          console.log("TagCanvas object available:", Boolean(window.TagCanvas));
-        }}
-      />
-      <Component {...pageProps} />
+      <style jsx global>{`
+        :root {
+          --font-sans: ${inter.style.fontFamily};
+          --font-serif: ${fraunces.style.fontFamily};
+          --font-mono: ${mono.style.fontFamily};
+        }
+      `}</style>
+      <MotionConfig reducedMotion="user">
+        <Component {...pageProps} />
+      </MotionConfig>
     </>
   );
 }
-
-export default MyApp;

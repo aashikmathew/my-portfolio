@@ -1,44 +1,65 @@
-import React from 'react';
+import { FiArrowUpRight } from 'react-icons/fi';
+import Section from './Section';
+import Reveal from './Reveal';
+import { certifications, currentRole, education } from '../data/portfolio';
 import styles from '../styles/About.module.css';
 
 export default function About() {
   return (
-    <div className={styles.container}>
-      <div className={styles.content}>
-        <h1 className={styles.greeting}>
-          Hi there! <span className={styles.waveEmoji}>👋</span>
-        </h1>
+    <Section id="about" index="01" eyebrow="About" title="I build software where being wrong is expensive.">
+      <div className={styles.grid}>
+        <Reveal className={styles.bio}>
+          <p className={styles.lead}>
+            At Phillip Capital, a Chicago clearing firm, I work on the systems that process, margin, and report
+            futures and options trades.
+          </p>
+          <p>
+            Before that, I built computer vision models for orthopaedic research and full-stack tools at the
+            University of Illinois Chicago, where I earned my MS in Computer Science.
+          </p>
+          <p>Research taught me to question every number. Finance taught me to make sure it&apos;s right by market close.</p>
+        </Reveal>
 
-        <p className={styles.bio}>
-          I'm Aashik Mathew Prosper – a software engineer and dedicated problem-solver committed to transforming cutting-edge technology into real-world solutions. With deep expertise in full-stack development, AI, and machine learning, I have designed and built responsive web applications, deployed sophisticated AI models, and driven impactful research in healthcare and education.
-        </p>
+        <Reveal as="aside" delay={0.1} className={styles.card} aria-label="At a glance">
+          <div className={styles.block}>
+            <h3 className={styles.cardTitle}>Currently</h3>
+            <p className={styles.itemTitle}>{currentRole.title}</p>
+            <a href={currentRole.link} target="_blank" rel="noopener noreferrer" className={styles.itemLink}>
+              {currentRole.org}
+              <FiArrowUpRight aria-hidden />
+            </a>
+            <p className={styles.itemMeta}>{currentRole.detail}</p>
+          </div>
 
-        <p className={styles.bio}>
-          Currently, I serve as a Research Specialist at the University of Illinois at Chicago (UIC), College of Medicine and a Software Engineer at Creative Digital Services at UIC. I also proudly contribute as a Teaching Assistant at Cedar Grove High School in Wisconsin as part of the Microsoft TEALS Program, and as an Intel One API Ambassador. Check my Ambassdor profile{' '}
-          <a 
-            href="https://www.intel.com/content/www/us/en/developer/tools/oneapi/training/academic-program/student-ambassador/all-ambassador-profiles.html?s=AtoZ" 
-            target="_blank" 
-            rel="noopener noreferrer"
-          >
-            here
-          </a>.
-        </p>
+          <div className={styles.block}>
+            <h3 className={styles.cardTitle}>Education</h3>
+            <ul className={styles.list}>
+              {education.map((e) => (
+                <li key={e.school}>
+                  <p className={styles.itemTitle}>{e.degree}</p>
+                  <p className={styles.itemMeta}>
+                    {e.school} · {e.years} · GPA {e.gpa}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-        <p className={styles.bio}>
-          I am open to full-time opportunities where I can further leverage my passion for continuous learning and drive meaningful change through technology.
-        </p>
-
-        <div className={styles.resumeSection}>
-          <a
-            href="https://drive.google.com/file/d/1rPIuFQuO5zNwFd_8p0HaLAG8bSaAf97u/view?usp=sharing"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.resumeButton}
-          >
-            View My Resume
-          </a>
-        </div>
+          <div className={styles.block}>
+            <h3 className={styles.cardTitle}>Certified</h3>
+            <ul className={styles.list}>
+              {certifications.map((c) => (
+                <li key={c.name}>
+                  <p className={styles.itemTitle}>{c.name}</p>
+                  <p className={styles.itemMeta}>
+                    {c.issuer} · {c.year}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Reveal>
       </div>
-    </div>
+    </Section>
   );
 }

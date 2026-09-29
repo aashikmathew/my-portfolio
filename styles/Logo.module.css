@@ -1,0 +1,80 @@
+.logo {
+  display: block;
+  flex-shrink: 0;
+  overflow: visible;
+}
+
+.tile {
+  fill: var(--text);
+  transition: fill 0.3s ease;
+}
+
+.letter {
+  fill: none;
+  stroke: var(--bg);
+  stroke-width: 3.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.chart {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: draw 0.9s var(--ease-out) forwards;
+}
+
+.dot {
+  fill: var(--accent);
+  transform-origin: 30px 13.8px;
+  transform: scale(0);
+  animation: pop 0.4s 0.7s var(--ease-out) forwards;
+}
+
+/* Redraw the chart when the parent link is hovered or focused. */
+:global(a:hover) > .logo .chart,
+:global(a:focus-visible) > .logo .chart {
+  animation: redraw 0.8s var(--ease-out) forwards;
+}
+
+:global(a:hover) > .logo .dot,
+:global(a:focus-visible) > .logo .dot {
+  animation: pulse 0.8s var(--ease-out) forwards;
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes redraw {
+  0% {
+    stroke-dashoffset: 1;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes pop {
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0);
+  }
+  70% {
+    transform: scale(1.35);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
