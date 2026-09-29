@@ -69,9 +69,9 @@
 /* ---------- Layout ---------- */
 .grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
   align-items: center;
-  gap: clamp(2rem, 6vw, 5rem);
+  gap: clamp(2rem, 5vw, 4rem);
 }
 
 .status {
@@ -245,33 +245,98 @@
   font-size: 0.9rem;
 }
 
-/* ---------- Portrait ---------- */
-.portrait {
+/* ---------- Scene: Board of Trade with the portrait in front of its lower-left corner ---------- */
+.scene {
+  --scene-h: clamp(480px, 40vw, 580px);
   position: relative;
-  margin: 0;
-  justify-self: end;
-  width: 100%;
-  max-width: 360px;
-  margin-top: 9rem;
-  perspective: 1000px;
+  height: var(--scene-h);
   isolation: isolate;
+}
+
+.cbot {
+  position: absolute;
+  z-index: -1;
+  right: -14%;
+  bottom: 0;
+  width: calc(var(--scene-h) * 0.6977);
+  height: 100%;
+  mask-image: linear-gradient(to top, transparent 0%, #000 22%);
+  -webkit-mask-image: linear-gradient(to top, transparent 0%, #000 22%);
+}
+
+.callout {
+  position: absolute;
+  top: 15%;
+  left: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.55rem 0.85rem 0.55rem 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--surface) 85%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-md);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  line-height: 1.35;
+}
+
+.callout strong {
+  display: block;
+  color: var(--text);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.calloutSub {
+  display: block;
+  color: var(--text-muted);
+}
+
+.calloutIcon {
+  flex-shrink: 0;
+  color: var(--accent);
+  font-size: 1rem;
+}
+
+/* Dashed leader line pointing at the tower. */
+.callout::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  width: 64px;
+  height: 1px;
+  background: repeating-linear-gradient(90deg, var(--accent) 0 4px, transparent 4px 8px);
+}
+
+.callout::before {
+  content: '';
+  position: absolute;
+  top: calc(50% - 3px);
+  left: calc(100% + 62px);
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-soft);
+}
+
+.portrait {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 60%;
+  max-width: 270px;
+  margin: 0;
+  perspective: 1000px;
 }
 
 .tiltStage {
   position: relative;
   transform-style: preserve-3d;
-}
-
-/* Board of Trade tower rising behind the photo; stays still while the photo tilts. */
-.cbot {
-  position: absolute;
-  z-index: -1;
-  left: -20%;
-  bottom: 0;
-  width: 140%;
-  aspect-ratio: 600 / 860;
-  mask-image: linear-gradient(to top, transparent 0%, #000 30%);
-  -webkit-mask-image: linear-gradient(to top, transparent 0%, #000 30%);
 }
 
 .skyline {
@@ -334,8 +399,7 @@
   filter: brightness(0.94);
 }
 
-.quoteCard,
-.gpaChip {
+.quoteCard {
   position: absolute;
   border: 1px solid var(--border);
   background: color-mix(in srgb, var(--surface) 88%, transparent);
@@ -346,9 +410,9 @@
 }
 
 .quoteCard {
-  left: -2.5rem;
-  bottom: 1.75rem;
-  width: 190px;
+  left: -3.5rem;
+  bottom: -1.5rem;
+  width: 172px;
   padding: 0.8rem 0.9rem 0.7rem;
   border-radius: 16px;
   color: var(--text);
@@ -409,18 +473,6 @@
   color: var(--success);
 }
 
-.gpaChip {
-  top: 1.5rem;
-  right: -1.5rem;
-  padding: 0.5rem 0.85rem;
-  border-radius: var(--radius-pill);
-  color: var(--text);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  transform: translateZ(40px);
-}
-
 /* ---------- Stats ---------- */
 .stats {
   display: grid;
@@ -459,23 +511,37 @@
     grid-template-columns: 1fr;
   }
 
-  .portrait {
+  /* Phone: the scene becomes a banner above the name, tower centred, photo tucked bottom-left. */
+  .scene {
+    --scene-h: clamp(320px, 88vw, 420px);
     grid-row: 1;
-    justify-self: start;
-    max-width: 230px;
-    margin-top: 5rem;
-    margin-left: 1.5rem;
+  }
+
+  .cbot {
+    right: auto;
+    left: calc(50% - var(--scene-h) * 0.349 + 3.5rem);
+  }
+
+  .portrait {
+    width: 44%;
+    max-width: 190px;
   }
 
   .quoteCard {
-    left: auto;
-    right: -7.5rem;
-    bottom: 1rem;
-    width: 160px;
+    display: none;
   }
 
-  .gpaChip {
-    display: none;
+  .callout {
+    top: 6%;
+    font-size: 0.66rem;
+  }
+
+  .callout::after {
+    width: 34px;
+  }
+
+  .callout::before {
+    left: calc(100% + 32px);
   }
 
   .stat {
@@ -492,15 +558,6 @@
 }
 
 @media (max-width: 480px) {
-  .portrait {
-    max-width: 190px;
-  }
-
-  .quoteCard {
-    right: -8.5rem;
-    width: 150px;
-  }
-
   .quoteBottom {
     font-size: 0.6rem;
     letter-spacing: 0.02em;
