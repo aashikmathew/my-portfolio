@@ -1,7 +1,8 @@
 .hero {
+  --skyline-h: clamp(110px, 12vw, 170px);
   position: relative;
   margin-top: calc(var(--header-height) * -1);
-  padding: calc(var(--header-height) + clamp(3rem, 8vw, 6rem)) 0 clamp(3.5rem, 7vw, 5rem);
+  padding: calc(var(--header-height) + clamp(3rem, 8vw, 6rem)) 0 calc(var(--skyline-h) * 0.8);
   overflow: hidden;
   isolation: isolate;
 }
@@ -251,7 +252,9 @@
   justify-self: end;
   width: 100%;
   max-width: 360px;
+  margin-top: 9rem;
   perspective: 1000px;
+  isolation: isolate;
 }
 
 .tiltStage {
@@ -259,13 +262,28 @@
   transform-style: preserve-3d;
 }
 
-.backCard {
+/* Board of Trade tower rising behind the photo; stays still while the photo tilts. */
+.cbot {
   position: absolute;
-  inset: 0;
-  border-radius: 30px;
-  background: linear-gradient(145deg, var(--accent), var(--accent-hover));
-  opacity: 0.9;
-  transform: rotate(5deg) translate(14px, 10px) translateZ(-40px);
+  z-index: -1;
+  left: -20%;
+  bottom: 0;
+  width: 140%;
+  aspect-ratio: 600 / 860;
+  mask-image: linear-gradient(to top, transparent 0%, #000 30%);
+  -webkit-mask-image: linear-gradient(to top, transparent 0%, #000 30%);
+}
+
+.skyline {
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: var(--skyline-h);
+  mask-image: linear-gradient(to top, #000 50%, transparent);
+  -webkit-mask-image: linear-gradient(to top, #000 50%, transparent);
+  opacity: 0.8;
 }
 
 .portraitFrame {
@@ -445,7 +463,8 @@
     grid-row: 1;
     justify-self: start;
     max-width: 230px;
-    margin-left: 0.5rem;
+    margin-top: 5rem;
+    margin-left: 1.5rem;
   }
 
   .quoteCard {

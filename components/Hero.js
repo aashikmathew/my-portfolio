@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { FiArrowRight, FiFileText, FiGithub, FiLinkedin, FiMail, FiMapPin } from 'react-icons/fi';
 import CountUp from './CountUp';
+import { BoardOfTrade, Skyline } from './Cityscape';
 import portrait from '../assets/profile.jpg';
 import { certifications, profile, projects, publications } from '../data/portfolio';
 import styles from '../styles/Hero.module.css';
@@ -114,8 +115,8 @@ function Portrait() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1, delay: 0.3, ease }}
     >
+      <BoardOfTrade className={styles.cbot} />
       <motion.div className={styles.tiltStage} style={{ rotateX, rotateY }}>
-        <div className={styles.backCard} aria-hidden />
         <div className={styles.portraitFrame}>
           <Image
             src={portrait}
@@ -167,6 +168,7 @@ export default function Hero() {
         <div className={styles.orbA} />
         <div className={styles.orbB} />
       </div>
+      <Skyline className={styles.skyline} />
 
       <div className={`container ${styles.grid}`}>
         <div className={styles.copy}>
