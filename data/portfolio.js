@@ -12,9 +12,9 @@ export const profile = {
     'I build the software behind futures and options clearing: trade processing, risk, and regulatory reporting that has to be right every single day.',
   location: 'Chicago, IL',
   email: 'aashikmathewss@gmail.com',
-  resume: 'https://drive.google.com/file/d/1rPIuFQuO5zNwFd_8p0HaLAG8bSaAf97u/view?usp=sharing',
+  resume: 'https://drive.google.com/file/d/1j-UagkD61zzbPCbwiAR0xLa4eUdU7KX_/view?usp=sharing',
   socials: {
-    github: 'https://github.com/aashikmathewcodes',
+    github: 'https://github.com/aashikmathew',
     linkedin: 'https://www.linkedin.com/in/aashikmathew',
   },
 };

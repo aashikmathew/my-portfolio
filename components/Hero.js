@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { FiArrowRight, FiFileText, FiGithub, FiLinkedin, FiMail, FiMapPin } from 'react-icons/fi';
 import CountUp from './CountUp';
+import { BoardOfTrade, Skyline } from './Cityscape';
 import portrait from '../assets/profile.jpg';
 import { certifications, profile, projects, publications } from '../data/portfolio';
 import styles from '../styles/Hero.module.css';
@@ -106,57 +107,50 @@ function Portrait() {
   };
 
   return (
-    <motion.figure
-      className={styles.portrait}
-      onPointerMove={onPointerMove}
-      onPointerLeave={reset}
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1, delay: 0.3, ease }}
-    >
-      <motion.div className={styles.tiltStage} style={{ rotateX, rotateY }}>
-        <div className={styles.backCard} aria-hidden />
-        <div className={styles.portraitFrame}>
-          <Image
-            src={portrait}
-            alt={`Portrait of ${profile.name}`}
-            priority
-            sizes="(max-width: 860px) 260px, 380px"
-            className={styles.portraitImage}
-          />
-        </div>
+    <div className={styles.scene}>
+      <BoardOfTrade className={styles.cbot} />
 
-        <motion.div
-          className={styles.quoteCard}
-          initial={{ opacity: 0, y: 16, scale: 0.95 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ delay: 0.9, duration: 0.7, ease }}
-          aria-hidden
-        >
-          <div className={styles.quoteTop}>
-            <span className={styles.ticker}>AMP</span>
-            <span className={styles.live}>
-              <span className={styles.liveDot} /> LIVE
-            </span>
+      <motion.figure
+        className={styles.portrait}
+        onPointerMove={onPointerMove}
+        onPointerLeave={reset}
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.3, ease }}
+      >
+        <motion.div className={styles.tiltStage} style={{ rotateX, rotateY }}>
+          <div className={styles.portraitFrame}>
+            <Image
+              src={portrait}
+              alt={`Portrait of ${profile.name}`}
+              priority
+              sizes="(max-width: 860px) 170px, 270px"
+              className={styles.portraitImage}
+            />
           </div>
-          <Sparkline />
-          <div className={styles.quoteBottom}>
-            <span>Shipping since 2022</span>
-            <span className={styles.up}>▲</span>
-          </div>
-        </motion.div>
 
-        <motion.div
-          className={styles.gpaChip}
-          initial={{ opacity: 0, x: 12 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 1.2, duration: 0.6, ease }}
-          aria-hidden
-        >
-          MS CS · 4.0
+          <motion.div
+            className={styles.quoteCard}
+            initial={{ opacity: 0, y: 16, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ delay: 0.9, duration: 0.7, ease }}
+            aria-hidden
+          >
+            <div className={styles.quoteTop}>
+              <span className={styles.ticker}>AMP</span>
+              <span className={styles.live}>
+                <span className={styles.liveDot} /> LIVE
+              </span>
+            </div>
+            <Sparkline />
+            <div className={styles.quoteBottom}>
+              <span>Shipping since 2022</span>
+              <span className={styles.up}>▲</span>
+            </div>
+          </motion.div>
         </motion.div>
-      </motion.div>
-    </motion.figure>
+      </motion.figure>
+    </div>
   );
 }
 
@@ -167,6 +161,7 @@ export default function Hero() {
         <div className={styles.orbA} />
         <div className={styles.orbB} />
       </div>
+      <Skyline className={styles.skyline} />
 
       <div className={`container ${styles.grid}`}>
         <div className={styles.copy}>

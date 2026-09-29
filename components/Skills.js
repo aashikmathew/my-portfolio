@@ -179,7 +179,7 @@ export default function Skills() {
                             <span className={styles.count} aria-hidden>
                               {skill.count}
                             </span>
-                            <span className="visually-hidden">, used in {skill.count} places</span>
+                            <span className="visually-hidden">, used in {plural(skill.count, 'place')}</span>
                           </>
                         )}
                       </button>
@@ -204,7 +204,7 @@ export default function Skills() {
 
       <p className="visually-hidden" aria-live="polite">
         {selected
-          ? `${selected.name}: ${selected.count === 0 ? 'no linked projects yet' : `used in ${selected.count} places`}. Details shown in the skill details panel.`
+          ? `${selected.name}: ${selected.count === 0 ? 'no linked projects yet' : `used in ${plural(selected.count, 'place')}`}. Details shown in the skill details panel.`
           : ''}
       </p>
     </Section>
