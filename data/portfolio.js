@@ -14,7 +14,7 @@ export const profile = {
   email: 'aashikmathewss@gmail.com',
   resume: 'https://drive.google.com/file/d/1rPIuFQuO5zNwFd_8p0HaLAG8bSaAf97u/view?usp=sharing',
   socials: {
-    github: 'https://github.com/aashikmathewcodes',
+    github: 'https://github.com/aashikmathew',
     linkedin: 'https://www.linkedin.com/in/aashikmathew',
   },
 };
